@@ -91,6 +91,9 @@ router.get("/status", async(req, res) => {
         let users = User.find({}, "username status")
         res.json(users)
     }
+    catch(ex) {
+        res.status(401).json({error: "invalid jwt"})
+    }
 })
 
 
